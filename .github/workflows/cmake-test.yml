@@ -55,7 +55,7 @@ jobs:
       - name: Create CMakeLists.txt file
         run: |
           touch "CMakeLists.txt"
-          echo find_library(PSAPI NAMES "psapi" REQUIRED) >> CMakeLists.txt
+          echo "find_library(PSAPI NAMES \"psapi\" REQUIRED)" >> CMakeLists.txt
         shell: bash
       - name: Build
         run: |
