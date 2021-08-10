@@ -63,19 +63,6 @@ jobs:
       - name: Show content of workspace at its completion
         run: find $RUNNER_WORKSPACE
         shell: bash
-
-
-
-
-
-
-
-
-
-
-
-
-
       - name: Create CMakeLists.txt file
         run: |
           touch "CMakeLists.txt"
