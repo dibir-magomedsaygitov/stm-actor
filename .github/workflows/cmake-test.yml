@@ -1,9 +1,3 @@
-# Copyright (c) 2021 Luca Cappa
-# Released under the term specified in file LICENSE.txt
-# SPDX short identifier: MIT
-
-# A GitHub workflow using CMake, Ninja and vcpkg.
-# It is called "pure" because it is an example which minimizes the usage of custom GitHub actions, but leverages directly the tools that could be easily run on your development machines (i.e. CMake, vcpkg, Ninja).
 name: hosted-pure-workflow
 on: [push]
 
@@ -63,6 +57,25 @@ jobs:
         run: |
           cmake -S "${{ github.workspace }}/vcpkg_manifest" -B "${{ env.CMAKE_BUILD_DIR }}" -GNinja -DCMAKE_TOOLCHAIN_FILE="${{ env.VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake"
       # Build the whole project with Ninja (which is spawn by CMake).
+      - name: Build
+        run: |
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}"
+      - name: Show content of workspace at its completion
+        run: find $RUNNER_WORKSPACE
+        shell: bash
+
+
+
+
+
+
+
+
+
+
+
+
+
       - name: Create CMakeLists.txt file
         run: |
           touch "CMakeLists.txt"
