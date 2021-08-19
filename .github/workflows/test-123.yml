@@ -1,0 +1,21 @@
+name: hosted-pure-workflow
+on: [push]
+
+jobs:
+  job:
+    name: cmake-test
+    runs-on: windows-latest
+    steps:      
+      # - uses: microsoft/setup-msbuild@v1.0.2      
+      - name: Create CMakeLists.txt file
+        run: |
+          touch "CMakeLists.txt"
+        shell: bash
+      - name: Create example c++ file
+        run: |
+          touch "test.cpp"
+        shell: bash
+      
+      - name: Build
+        run: |
+          cmake -G "Visual Studio 16 2019" -T v140
