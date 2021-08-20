@@ -18,4 +18,4 @@ jobs:
       
       - name: Build
         run: |
-          cmake -G "Visual Studio 16 2019" -T v140
+          cmake -G "Visual Studio 16 2019" -DCMAKE_SYSTEM_NAME=WindowsStore -T v140 #
