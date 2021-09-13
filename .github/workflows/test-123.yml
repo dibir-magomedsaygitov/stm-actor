@@ -4,7 +4,7 @@ on: [push]
 jobs:
   job:
     name: kotlin test
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: test
         run: kotlin -e 'System.getProperty("kotlin.home")'
