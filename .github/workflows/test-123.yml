@@ -3,19 +3,9 @@ on: [push]
 
 jobs:
   job:
-    name: cmake-test
-    runs-on: windows-latest
-    steps:      
-      - uses: microsoft/setup-msbuild@v1.0.2      
-      - name: Create CMakeLists.txt file
-        run: |
-          touch "CMakeLists.txt"
+    name: kotlin test
+    runs-on: [windows-latest, macos-latest, ubuntu-latest]
+    steps:
+      - name: test
+        run: kotlin -e 'System.getProperty("kotlin.home")'
         shell: bash
-      - name: Create example c++ file
-        run: |
-          touch "test.cpp"
-        shell: bash
-      
-      - name: Build
-        run: |
-          cmake -G "Visual Studio 16 2019" -DCMAKE_SYSTEM_NAME=WindowsStore -T v140
